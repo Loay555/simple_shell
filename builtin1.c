@@ -67,10 +67,10 @@ int print_alias(list_t *nu)
 {
 	char *sagot = NULL, *berafa = NULL;
 
-	if (node)
+	if (nu)
 	{
-		sagot = _strchr(node->str, '=');
-		for (berafa = node->str; berafa <= sagot; berafa++)
+		sagot = _strchr(nu->str, '=');
+		for (berafa = nu->str; berafa <= sagot; berafa++)
 		_putchar(*berafa);
 		_putchar('\'');
 		_puts(sagot + 1);

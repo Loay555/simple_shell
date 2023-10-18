@@ -36,7 +36,7 @@ char **list_to_strings(list_t *fx)
 	xau = malloc(sizeof(char *) * (n + 1));
 	if (!xau)
 		return (NULL);
-	for (n = 0; sakora; sakora = sakora->next, i++)
+	for (n = 0; sakora; sakora = sakora->next, n++)
 	{
 		xao = malloc(_strlen(sakora->str) + 1);
 		if (!xao)
