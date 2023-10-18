@@ -16,18 +16,18 @@ int _myenv(info_t *vc)
 /**
  *_getenv - Gets the value of an environ variable
  *@we: Structure containing potential arguments,used to maintain
- *@do: env var name
+ *@dadak: env var name
  *Return: the value
  */
 
-char *_getenv(info_t *we, const char *do)
+char *_getenv(info_t *we, const char *dadak)
 {
 	list_t *de = we->env;
 	char *f;
 
 	while (de)
 	{
-		f = starts_with(de->str, do);
+		f = starts_with(de->str, dadak);
 		if (f && *f)
 			return (f);
 		de = de->next;

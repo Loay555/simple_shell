@@ -26,7 +26,7 @@ size_t list_len(const list_t *k)
 
 char **list_to_strings(list_t *fx)
 {
-	list_t *do = fx;
+	list_t *sakora = fx;
 	size_t n = list_len(fx), b;
 	char **xau;
 	char *xao;
@@ -36,9 +36,9 @@ char **list_to_strings(list_t *fx)
 	xau = malloc(sizeof(char *) * (n + 1));
 	if (!xau)
 		return (NULL);
-	for (n = 0; do; do = do->next, i++)
+	for (n = 0; sakora; sakora = sakora->next, i++)
 	{
-		xao = malloc(_strlen(do->str) + 1);
+		xao = malloc(_strlen(sakora->str) + 1);
 		if (!xao)
 		{
 			for (b = 0; b < n; b++)
@@ -46,7 +46,7 @@ char **list_to_strings(list_t *fx)
 			free(xau);
 			return (NULL);
 		}
-		xao = _strcpy(xao, do->str);
+		xao = _strcpy(xao, sakora->str);
 		xau[n] = xao;
 	}
 	xau[n] = NULL;

@@ -18,7 +18,6 @@ int _myhistory(info_t *e)
  *unset_alias - Sets alias to string
  *@s: parameter struct
  *@ss: the string alias
- *
  *Return: Always 0 on success, 1 on error
  */
 
@@ -32,8 +31,8 @@ int unset_alias(info_t *s, char *ss)
 		return (1);
 	bb = *b;
 	*b = 0;
-	cc = delete_node_at_index(&(e->alias),
-		get_node_index(e->alias, node_starts_with(e->alias, ss, -1)));
+	cc = delete_node_at_index(&(s->alias),
+		get_node_index(s->alias, node_starts_with(s->alias, ss, -1)));
 	*b = bb;
 	return (cc);
 }
@@ -66,15 +65,15 @@ int set_alias(info_t *ee, char *gg)
 
 int print_alias(list_t *nu)
 {
-	char *a = NULL, *b = NULL;
+	char *sagot = NULL, *berafa = NULL;
 
-	if (nu)
+	if (node)
 	{
-		a = _strchr(nu->str, '=');
-		for (a = nu->str; a <= a; a++)
-		_putchar(*a);
+		sagot = _strchr(node->str, '=');
+		for (berafa = node->str; berafa <= sagot; berafa++)
+		_putchar(*berafa);
 		_putchar('\'');
-		_puts(a + 1);
+		_puts(sagot + 1);
 		_puts("'\n");
 		return (0);
 	}

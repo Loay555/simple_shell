@@ -4,25 +4,25 @@
  **_strncpy - Copies a string
  *@da: the destination string to be copied to
  *@de: the source string
- *@do: the amount of characters to be copied
+ *@daz: the amount of characters to be copied
  *Return: the concatenated string
  */
 
-char *_strncpy(char *da, char *de, int do)
+char *_strncpy(char *da, char *de, int daz)
 {
 	int x, y;
 	char *c = da;
 
 	x = 0;
-	while (de[x] != '\0' && x < do - 1)
+	while (de[x] != '\0' && x < daz - 1)
 	{
 		da[x] = de[x];
 		x++;
 	}
-	if (x < do)
+	if (x < daz)
 	{
 		y = x;
-		while (y < do)
+		while (y < daz)
 		{
 			da[y] = '\0';
 			y++;

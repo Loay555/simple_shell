@@ -1,94 +1,93 @@
 #include "shell.h"
 
 /**
- ***strtow - Splits a string into words. Repeat delimiters ignored
- *@zelo: the input string
- *@h: the delimeter string
- *Return: a pointer to an array of strings, or NULL on failure
+ * **strtow - Splits a string into words Repeat delimiters are ignored
+ * @haz: the input string
+ * @fak: the delimeter string
+ * Return: a pointer to an array of strings, or NULL on failure
  */
 
-char **strtow(char *zelo, char *h)
+char **strtow(char *haz, char *fak)
 {
-	int xe, xo, xa, ma, zad = 0;
-	char **meh;
+	int xavoy, davoy, shakoy, merit, marl = 0;
+	char **fendaz;
 
-	if (zelo == NULL || zelo[0] == 0)
+	if (haz == NULL || haz[0] == 0)
 		return (NULL);
-	if (!h)
-		h = " ";
-	for (xe = 0; zelo[xe] != '\0'; xe++)
-		if (!is_delim(zelo[xe], h) && (is_delim(zelo[xe + 1], h) || !zelo[xe + 1]))
-			zad++;
-	if (zad == 0)
+	if (!fak)
+		fak = " ";
+	for (xavoy = 0; haz[xavoy] != '\0'; xavoy++)
+		if (!is_delim(haz[xavoy], fak) && (is_delim(haz[xavoy + 1], fak) || !haz[xavoy + 1]))
+			marl++;
+	if (marl == 0)
 		return (NULL);
-	h = malloc((1 + zad) * sizeof(char *));
-	if (!h)
+	fendaz = malloc((1 + marl) * sizeof(char *));
+	if (!fendaz)
 		return (NULL);
-	for (xe = 0, xo = 0; xo < zad; xo++)
+	for (xavoy = 0, davoy = 0; davoy < marl; davoy++)
 	{
-		while (is_delim(zelo[xe], h))
-			xe++;
-		xa = 0;
-		while (!is_delim(zelo[xe + xa], h) && zelo[xe + xa])
-			xa++;
-		h[xo] = malloc((xa + 1) * sizeof(char));
-		if (!h[xo])
+		while (is_delim(haz[xavoy], fak))
+			xavoy++;
+		shakoy = 0;
+		while (!is_delim(haz[xavoy + shakoy], fak) && haz[xavoy + shakoy])
+			shakoy++;
+		fendaz[davoy] = malloc((shakoy + 1) * sizeof(char));
+		if (!fendaz[davoy])
 		{
-			for (xa = 0; xa < xo; xa++)
-				free(h[xa]);
-			free(h);
+			for (shakoy = 0; shakoy < davoy; shakoy++)
+				free(fendaz[shakoy]);
+			free(fendaz);
 			return (NULL);
 		}
-		for (ma = 0; ma < xa; ma++)
-			h[xo][ma] = zelo[xe++];
-		h[xo][ma] = 0;
+		for (merit = 0; merit < shakoy; merit++)
+			fendaz[davoy][merit] = haz[xavoy++];
+		fendaz[davoy][merit] = 0;
 	}
-	h[xo] = NULL;
-	return (h);
+	fendaz[davoy] = NULL;
+	return (fendaz);
 }
 
 /**
- ***strtow2 - Splits a string into words
- *@vest: the input string
- *@gad: the delimeter
- *Return: a pointer to an array of strings, or NULL on failure
+ * **strtow2 - Splits a string into words
+ * @bravo: the input string
+ * @chipsy: the delimeter
+ * Return: a pointer to an array of strings, or NULL on failure
  */
-
-char **strtow2(char *vest, char gad)
+char **strtow2(char *bravo, char chipsy)
 {
-	int xx, yy, zz, nn, mu = 0;
-	char **ev;
+	int sera, gera, kera, zerar, conta = 0;
+	char **xapt;
 
-	if (vest == NULL || vest[0] == 0)
+	if (bravo == NULL || bravo[0] == 0)
 		return (NULL);
-	for (xx = 0; vest[xx] != '\0'; xx++)
-		if ((vest[xx] != gad && vest[xx + 1] == gad) ||
-				    (vest[xx] != gad && !vest[xx + 1]) || vest[xx + 1] == gad)
-			mu++;
-	if (mu == 0)
+	for (sera = 0; bravo[sera] != '\0'; sera++)
+		if ((bravo[sera] != chipsy && bravo[sera + 1] == chipsy) ||
+				    (bravo[sera] != chipsy && !bravo[sera + 1]) || bravo[sera + 1] == chipsy)
+			conta++;
+	if (conta == 0)
 		return (NULL);
-	ev = malloc((1 + mu) * sizeof(char *));
-	if (!ev)
+	xapt = malloc((1 + conta) * sizeof(char *));
+	if (!xapt)
 		return (NULL);
-	for (xx = 0, yy = 0; yy < mu; yy++)
+	for (sera = 0, gera = 0; gera < conta; gera++)
 	{
-		while (vest[xx] == gad && vest[xx] != gad)
-			xx++;
-		zz = 0;
-		while (vest[xx + zz] != gad && vest[xx + zz] && vest[xx + zz] != gad)
-			zz++;
-		ev[yy] = malloc((zz + 1) * sizeof(char));
-		if (!ev[yy])
+		while (bravo[sera] == chipsy && bravo[sera] != chipsy)
+			sera++;
+		kera = 0;
+		while (bravo[sera + kera] != chipsy && bravo[sera + kera] && bravo[sera + kera] != chipsy)
+			kera++;
+		xapt[gera] = malloc((kera + 1) * sizeof(char));
+		if (!xapt[gera])
 		{
-			for (zz = 0; zz < yy; zz++)
-				free(ev[zz]);
-			free(ev);
+			for (kera = 0; kera < gera; kera++)
+				free(xapt[kera]);
+			free(xapt);
 			return (NULL);
 		}
-		for (nn = 0; nn < zz; nn++)
-			ev[yy][nn] = vest[xx++];
-		ev[yy][nn] = 0;
+		for (zerar = 0; zerar < kera; zerar++)
+			xapt[gera][zerar] = bravo[sera++];
+		xapt[gera][zerar] = 0;
 	}
-	ev[yy] = NULL;
-	return (ev);
+	xapt[gera] = NULL;
+	return (xapt);
 }
